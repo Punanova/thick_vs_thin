@@ -10,10 +10,10 @@ from skimage.morphology import remove_small_objects,closing,disk,opening
 
 # Optically thin
 Optically_Thin      =False
-Show_Optically_Thin =False
+Show_Optically_Thin =True
 # Optically thick
-Optically_Thick     =True
-Show_Optically_Thick=True
+Optically_Thick     =False
+Show_Optically_Thick=False
 
 file_in='data/Core2_N2Hp_10.fits'
 freq_line=93173.3920e6*u.Hz
