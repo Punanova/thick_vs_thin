@@ -12,7 +12,7 @@ from skimage.morphology import remove_small_objects,closing,disk,opening
 Optically_Thin      =False
 Show_Optically_Thin =False
 # Optically thick
-Optically_Thick     =False
+Optically_Thick     =True
 Show_Optically_Thick=True
 
 file_in='data/Core2_N2Hp_10.fits'
@@ -47,12 +47,12 @@ if Optically_Thin:
     cube.Registry.add_fitter('n2hp_vtau', pyspeckit.models.n2hp.n2hp_vtau_fitter, 4)
 
     print('start optically thin fit')
-    cube.fiteach(fittype='n2hp_vtau',  guesses=[3, 0.1, 6.7, 0.1], # Tex=5K, tau=0.1, v_center=7.1, \sigma_v=0.3 km/s
+    cube.fiteach(fittype='n2hp_vtau',  guesses=[80.0, 0.1, 6.7, 0.1], # Tex=5K, tau=0.1, v_center=7.1, \sigma_v=0.3 km/s
                  verbose_level=1, signal_cut=snr_min,
                  limitedmax=[F,F,T,T],
                  limitedmin=[T,T,T,T],
                  minpars=[ 0,  0,vmin,0.05],
-                 maxpars=[35.0,0,vmax,1.0],
+                 maxpars=[350.0,0,vmax,1.0],
                  fixed=[F,T,F,F], 
                  use_neighbor_as_guess=True, 
                  position_order = 1/peaksnr,
